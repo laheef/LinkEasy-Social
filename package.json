@@ -1,0 +1,12 @@
+{
+  "name": "linkeasy-social-tooling",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Build and QA dependencies only; no Node runtime on hosting",
+  "scripts": {
+    "build": "sh tools/build_assets.sh",
+    "test:ui": "node tools/qa-public.cjs && node tools/qa-command.cjs && node tools/qa-refinements.cjs",
+    "test:security": "php tools/qa-engineering.php"
+  },
+  "devDependencies": { "esbuild": "0.25.0", "playwright": "1.58.2" }
+}

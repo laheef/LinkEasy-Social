@@ -1,0 +1,9 @@
+/* Local lab metrics, not production capacity. node tools/qa-performance.cjs [base URL] */
+const {chromium}=require('playwright');
+(async()=>{const b=await chromium.launch({args:['--no-sandbox']});const results=[];
+for(const slow of [false,true]){const p=await b.newPage({viewport:{width:390,height:844}});
+await p.addInitScript(()=>{window.qaPerf={lcp:0,cls:0,longTasks:0};new PerformanceObserver(l=>{for(const e of l.getEntries())window.qaPerf.lcp=e.startTime}).observe({type:'largest-contentful-paint',buffered:true});new PerformanceObserver(l=>{for(const e of l.getEntries())if(!e.hadRecentInput)window.qaPerf.cls+=e.value}).observe({type:'layout-shift',buffered:true});new PerformanceObserver(l=>window.qaPerf.longTasks+=l.getEntries().length).observe({type:'longtask',buffered:true});});
+const c=await p.context().newCDPSession(p);await c.send('Network.enable');await c.send('Network.setCacheDisabled',{cacheDisabled:true});if(slow){await c.send('Network.emulateNetworkConditions',{offline:false,latency:40,downloadThroughput:500000,uploadThroughput:250000});await c.send('Emulation.setCPUThrottlingRate',{rate:4});}
+await p.goto(process.argv[2]||'http://127.0.0.1:8080/',{waitUntil:'networkidle'});await p.waitForTimeout(1200);
+results.push({condition:slow?'Simulated 4Mbps / 40ms / 4x CPU':'Local unthrottled',...await p.evaluate(()=>({...window.qaPerf,fcp:performance.getEntriesByName('first-contentful-paint')[0]?.startTime,load:performance.getEntriesByType('navigation')[0].loadEventEnd,requests:performance.getEntriesByType('resource').length,bodyBytes:performance.getEntriesByType('resource').reduce((n,e)=>n+e.encodedBodySize,performance.getEntriesByType('navigation')[0].encodedBodySize)}))});await p.close();}
+console.log(JSON.stringify(results,null,2));await b.close();})().catch(e=>{console.error(e);process.exit(1)});

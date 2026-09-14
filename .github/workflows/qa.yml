@@ -1,0 +1,55 @@
+name: Build and QA
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: shivammathur/setup-php@bf6b4fbd49ca58e4608c9c89fba0b8d90bd2a39f # 2.35.5
+        with:
+          php-version: '8.4'
+          extensions: pdo_sqlite, curl, mbstring, openssl
+          coverage: none
+      - name: Reproducible build and dependency audit
+        run: |
+          cp .env.example .env
+          npm ci --ignore-scripts
+          npm audit --audit-level=high
+          npm run build
+          git diff --exit-code -- public/assets
+          npx playwright install --with-deps chromium
+      - name: PHP, schema, security and concurrency tests
+        run: |
+          find src routes views config tools public -name '*.php' -print0 | xargs -0 -n1 php -l
+          php tools/qa-contact.php
+          php tools/qa-engineering.php
+          python3 tools/qa-concurrency.py
+      - name: Browser and extracted-package acceptance
+        shell: bash
+        run: |
+          set -euo pipefail
+          php -S 0.0.0.0:8080 -t public public/router.php > /tmp/les-web.log 2>&1 &
+          MAIN=$!
+          python3 tools/package_complete.py /tmp/les-candidate.zip
+          mkdir -p /tmp/les-isolated
+          unzip -q /tmp/les-candidate.zip -d /tmp/les-isolated
+          COPY=/tmp/les-isolated/linkeasy-social
+          touch "$COPY/.contact-qa-isolated"
+          (cd "$COPY"; APP_ENV=test MAIL_DRIVER=log MAIL_LOG_CONTENT=true php -S 0.0.0.0:8081 -t public public/router.php) > /tmp/les-copy.log 2>&1 &
+          ISOLATED=$!
+          trap 'kill "$MAIN" "$ISOLATED" || true' EXIT
+          npm run test:ui
+          python3 tools/qa-contact-http.py http://127.0.0.1:8081 "$COPY"
+          node tools/qa-security-browser.cjs http://127.0.0.1:8081 "$COPY"
+# Deliberately no deployment job, provider secrets or production connection.
+# Enable hosting-specific deployment only after review and live-service acceptance.

@@ -1,0 +1,25 @@
+[PASS] PHP 8.2 or newer
+[PASS] PHP extension: pdo
+[PASS] PHP extension: curl
+[PASS] PHP extension: openssl
+[PASS] PHP extension: mbstring
+[PASS] Configured PDO database driver
+[PASS] Production mode with debug disabled
+[PASS] APP_URL is a valid HTTPS URL
+[PASS] Runtime storage is writable
+[PASS] Packaged file: public/assets/css/landing.min.css
+[PASS] Packaged file: public/assets/css/platforms.min.css
+[PASS] Packaged file: public/assets/js/main.min.js
+[PASS] Packaged file: public/.htaccess
+[ACTION] Email delivery enabled (log driver does not send email)
+[DISABLED] Google login has no credentials. Configure and test if offered at launch.
+[DISABLED] PAYPAL_ENABLED is false: live checkout is deliberately gated.
+[DISABLED] PayPal billing has no credentials. Configure and test if offered at launch.
+[ACTION] Legal policy drafts reviewed and adopted by the operator
+[PASS] Application HTTPS enforcement enabled (except local dev server)
+[PASS] Sensitive development mail-body logging disabled
+[MANUAL] Run php tools/migrate.php after backup; configure cron for tools/worker.php and monitor queued/dead jobs. Configuration audit does not prove cron execution.
+[MANUAL] Connect and test the existing social-management backend. This dashboard is currently its integration scaffold.
+[MANUAL] Test TLS, email arrival/password reset, OAuth redirects, sandbox/live billing and webhook replay on your actual host.
+[MANUAL] Verify database access, backups, scheduled publishing worker and platform permissions in the existing app.
+This audit checks configuration presence only. It is not a security or production certification.

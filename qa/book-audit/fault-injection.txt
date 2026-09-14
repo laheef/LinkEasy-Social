@@ -1,0 +1,1 @@
+PASS injected database outage: safe HTTP 500 with request reference; no DSN, SQLSTATE, exception class or stack trace in user response. Tested on an isolated local server with a deliberately unavailable SQLite path.

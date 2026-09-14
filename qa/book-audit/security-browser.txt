@@ -1,0 +1,1 @@
+PASS browser security/auth: CSP, no-store, private paths, malformed/oversized input, CSRF, signup terms, session rotation, password reset, second-session invalidation, redirect guards and idle expiry.

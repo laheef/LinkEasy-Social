@@ -1,0 +1,75 @@
+PASS migrations repeat without changes
+PASS unsafe redirect rejected
+PASS unsafe redirect rejected
+PASS unsafe redirect rejected
+PASS unsafe redirect rejected
+PASS unsafe redirect rejected
+PASS unsafe redirect rejected
+PASS same-site destination retained
+PASS spoofed proxy TLS header ignored
+PASS explicit trusted TLS proxy supported
+PASS trusted proxy peels chain from the right
+PASS untrusted forwarded client IP ignored
+PASS new account is Free
+PASS registration includes subscription
+PASS correct password accepted
+PASS incorrect password denied
+PASS salted adaptive password hash
+PASS password length bounded
+PASS duplicate registration rejected
+PASS duplicate transaction leaves no partial account
+PASS unknown plan permission fails closed
+PASS cross-user ownership denied
+PASS Free account limit enforced
+PASS reset token resolves by stored hash
+PASS reset commits token use and password change
+PASS reset cannot replay
+PASS reset invalidates prior sessions by auth version
+PASS old session rejected after password reset
+PASS OAuth cannot auto-link existing email
+PASS provider identity links uniquely
+PASS setup brief validates
+PASS injected multi-write failure surfaces
+PASS failed transaction rolls back its earlier write
+PASS duplicate contact submit creates one message
+PASS contact and mail outbox deduplicate together
+PASS worker consumes queued reset and contact notifications
+PASS quote fields reach worker intact
+PASS delivered mail payload scrubbed, claim released
+PASS failure rescheduled with backoff
+PASS bounded retries end in scrubbed dead letter
+PASS expired reset job not delivered
+PASS rate budget admits allowed request
+PASS rate budget admits allowed request
+PASS rate budget admits allowed request
+PASS rate budget blocks next request
+PASS independent caller gets own budget
+PASS unsafe outbound destination rejected
+PASS unsafe outbound destination rejected
+PASS unsafe outbound destination rejected
+PASS unsafe outbound destination rejected
+PASS unsafe outbound destination rejected
+PASS unsafe outbound destination rejected
+PASS unsafe outbound destination rejected
+PASS safe GET transient retry bounded
+PASS unsafe POST fails without replay
+PASS one unsafe POST attempt
+PASS malformed provider JSON rejected
+PASS circuit opens after repeated failures
+PASS one half-open recovery probe
+PASS Google rejects unverified email
+PASS PKCE enabled
+PASS verified Google profile accepted
+PASS OAuth state single use
+PASS checkout response retry does not reassign or duplicate subscription
+PASS verified webhook replay idempotent
+PASS matched canonical active subscription grants plan
+PASS wrong provider plan binding rejected
+PASS failed entitlement transaction rolls back event
+PASS canonical cancellation revokes paid plan
+PASS out-of-order older event cannot restore access
+PASS sale event cannot grant subscription privileges
+PASS production log driver never sends or exposes mail contents
+PASS structured logger drops sensitive/unapproved fields
+
+73 engineering checks passed on mysql. Provider responses were mocked; no live service certification.

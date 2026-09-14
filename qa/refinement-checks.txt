@@ -1,0 +1,7 @@
+PASS 360px: copy, six unobstructed floating icons, pause/reduced motion, conditional quote form, About team, assets and overflow
+PASS 390px: copy, six unobstructed floating icons, pause/reduced motion, conditional quote form, About team, assets and overflow
+PASS 768px: copy, six unobstructed floating icons, pause/reduced motion, conditional quote form, About team, assets and overflow
+PASS 900px: copy, six unobstructed floating icons, pause/reduced motion, conditional quote form, About team, assets and overflow
+PASS 1024px: copy, six unobstructed floating icons, pause/reduced motion, conditional quote form, About team, assets and overflow
+PASS 1440px: copy, six unobstructed floating icons, pause/reduced motion, conditional quote form, About team, assets and overflow
+PASS no-JavaScript quote fallback

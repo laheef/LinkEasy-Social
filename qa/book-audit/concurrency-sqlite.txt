@@ -1,0 +1,6 @@
+PASS 20 concurrent rate checks admit exactly 5
+PASS 20 concurrent duplicate submissions create one contact + one job
+PASS 20 competing workers claim 10 jobs once each
+PASS abandoned worker leases recover and complete
+PASS 10 simultaneous password resets consume token exactly once
+Concurrency checks passed on SQLite. No production throughput claim.

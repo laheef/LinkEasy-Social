@@ -1,0 +1,33 @@
+PASS general enquiry needs no quote fields
+PASS valid setup brief accepted
+PASS serialized Instagram, LinkedIn
+PASS serialized Hosted workspace onboarding
+PASS serialized QA Brand
+PASS serialized Spreadsheets
+PASS serialized 8
+PASS serialized Not sure yet
+PASS serialized Asia/Karachi
+PASS reject malformed account_count
+PASS reject malformed account_count
+PASS reject malformed account_count
+PASS reject malformed account_count
+PASS reject malformed platforms
+PASS reject malformed platforms
+PASS reject malformed platforms
+PASS reject malformed services
+PASS reject malformed services
+PASS reject malformed api_status
+PASS reject malformed website_url
+PASS reject malformed organization
+PASS reject malformed name
+PASS reject malformed subject
+PASS reject malformed message
+PASS reject malformed email
+PASS required quote field use_case
+PASS required quote field account_count
+PASS required quote field api_status
+PASS required quote field platforms
+PASS required quote field services
+PASS legacy Managed preselection accepted
+PASS free text escaped for HTML rendering
+PASS 13 available platform options, no planned connections

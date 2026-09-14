@@ -1,0 +1,6 @@
+PASS 360px: layouts, assets, symbols, navigation and pricing
+PASS 390px: layouts, assets, symbols, navigation and pricing
+PASS 768px: layouts, assets, symbols, navigation and pricing
+PASS 1024px: layouts, assets, symbols, navigation and pricing
+PASS 1440px: layouts, assets, symbols, navigation and pricing
+PASS internal anchors, sitemap, aliases and private-path checks

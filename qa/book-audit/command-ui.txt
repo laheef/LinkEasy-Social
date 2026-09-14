@@ -1,0 +1,5 @@
+PASS 360px: vertical hero, metric tabs, keyboard, non-overlapping flow, header contraction and motion preferences
+PASS 390px: vertical hero, metric tabs, keyboard, non-overlapping flow, header contraction and motion preferences
+PASS 768px: vertical hero, metric tabs, keyboard, non-overlapping flow, header contraction and motion preferences
+PASS 1024px: vertical hero, metric tabs, keyboard, non-overlapping flow, header contraction and motion preferences
+PASS 1440px: vertical hero, metric tabs, keyboard, non-overlapping flow, header contraction and motion preferences

@@ -1,0 +1,18 @@
+.env
+.env.*
+!.env.example
+node_modules/
+.venv/
+__pycache__/
+.pytest_cache/
+.cache/
+storage/*
+!storage/README.md
+!storage/logs/
+storage/logs/*
+*.zip
+*.sqlite-wal
+*.sqlite-shm
+
+# Keep the writable runtime directory in a fresh clone, never its contents.
+!storage/logs/.gitkeep

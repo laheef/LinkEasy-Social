@@ -1,0 +1,22 @@
+[
+  {
+    "condition": "Local unthrottled",
+    "lcp": 280,
+    "cls": 0,
+    "longTasks": 1,
+    "fcp": 280,
+    "load": 257.70000000018626,
+    "requests": 8,
+    "bodyBytes": 637103
+  },
+  {
+    "condition": "Simulated 4Mbps / 40ms / 4x CPU",
+    "lcp": 1332,
+    "cls": 0.010745302252027134,
+    "longTasks": 3,
+    "fcp": 1332,
+    "load": 1897.1000000000931,
+    "requests": 8,
+    "bodyBytes": 637103
+  }
+]

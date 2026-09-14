@@ -1,0 +1,8 @@
+/* Ordered source modules. npm run build bundles them into one minified request. */
+@import "./parts/01-foundation.css";
+@import "./parts/02-workflow-modules.css";
+@import "./parts/03-marketing-sections.css";
+@import "./parts/04-pages-responsive.css";
+@import "./parts/05-public-refinements.css";
+@import "./parts/06-command-flow.css";
+@import "./parts/07-hero-contact-about.css";
